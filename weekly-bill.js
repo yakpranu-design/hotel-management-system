@@ -1,4 +1,5 @@
 import { db } from "./firebase.js";
+
 import {
     collection,
     getDocs,
@@ -8,11 +9,12 @@ import {
 
 let customerMobile = "";
 
+// Load Customers
 async function loadCustomers() {
 
     const select = document.getElementById("customerSelect");
 
-    select.innerHTML = '<option value="">Select Customer</option>';
+    select.innerHTML = `<option value="">Select Customer</option>`;
 
     const snapshot = await getDocs(collection(db, "customers"));
 
@@ -21,105 +23,143 @@ async function loadCustomers() {
         const customer = customerDoc.data();
 
         select.innerHTML += `
-        <option
-            value="${customer.name}"
-            data-id="${customerDoc.id}"
-            data-mobile="${customer.mobile}">
-            ${customer.name}
-        </option>`;
+            <option
+                value="${customerDoc.id}"
+                data-name="${customer.name}"
+                data-mobile="${customer.mobile}">
+                ${customer.name}
+            </option>
+        `;
     });
 
 }
 
-
 // Generate Weekly Bill
 async function generateBill() {
 
-   const customer = customerSelect.value;
+    const customerSelect = document.getElementById("customerSelect");
 
-if (!customer) {
-    alert("Please select a customer");
-    return;
-}
+    const customerId = customerSelect.value;
 
-const customerOption = customerSelect.options[customerSelect.selectedIndex];
+    if (!customerId) {
+        alert("Please select a customer");
+        return;
+    }
 
-const customerId = customerOption.dataset.id;
+    const customerOption =
+        customerSelect.options[customerSelect.selectedIndex];
 
-customerMobile = customerOption.dataset.mobile;
+    const customerName = customerOption.dataset.name;
 
-const q = query(
-    collection(db, "dailyEntries"),
-    where("customer", "==", customerId)
-);
+    customerMobile = customerOption.dataset.mobile;
+
+    const tbody = document.getElementById("billBody");
+
+    tbody.innerHTML = "";
+
+    let grandTotal = 0;
+
+    const q = query(
+        collection(db, "dailyEntries"),
+        where("customerId", "==", customerId)
+    );
+
     const snapshot = await getDocs(q);
 
-    snapshot.forEach((doc) => {
+    if (snapshot.empty) {
+        alert("No entries found for this customer.");
+        document.getElementById("grandTotal").textContent = "0";
+        return;
+    }
 
-        const data = doc.data();
+    snapshot.forEach((entryDoc) => {
 
-        grandTotal += Number(data.total);
+        const data = entryDoc.data();
+
+        grandTotal += Number(data.total || 0);
 
         tbody.innerHTML += `
-        
         <tr>
             <td>${data.date}</td>
             <td>${data.breakfast} (${data.breakfastQty})</td>
             <td>${data.lunch} (${data.lunchQty})</td>
             <td>${data.dinner} (${data.dinnerQty})</td>
             <td>₹${data.total}</td>
-        </tr>`;
+        </tr>
+        `;
+
     });
 
-    document.getElementById("grandTotal").innerHTML = grandTotal;
+    document.getElementById("grandTotal").textContent = grandTotal;
 
-    // Print Button
-    document.getElementById("printBtn").onclick = () => {
+}
+
+// Generate Button
+document
+    .getElementById("generateBtn")
+    .addEventListener("click", generateBill);
+
+// Print
+document
+    .getElementById("printBtn")
+    .addEventListener("click", () => {
+
         window.print();
-    };
 
-    // WhatsApp Button
-    document.getElementById("whatsappBtn").onclick = () => {
+    });
+
+// WhatsApp
+document
+    .getElementById("whatsappBtn")
+    .addEventListener("click", () => {
+
+        const customerSelect =
+            document.getElementById("customerSelect");
+
+        const customerName =
+            customerSelect.options[
+                customerSelect.selectedIndex
+            ].dataset.name;
+
+        const grandTotal =
+            document.getElementById("grandTotal").textContent;
 
         const msg =
 `🏨 Sivasakthi Hotel
 
-Customer : ${customer}
+Customer : ${customerName}
 
 Weekly Total : ₹${grandTotal}
 
 Thank You 🙏`;
 
         window.open(
-            `https://wa.me/91${customerMobile}?text=${encodeURIComponent(msg)}`
+            `https://wa.me/91${customerMobile}?text=${encodeURIComponent(msg)}`,
+            "_blank"
         );
-
-    };
-
-}
-
-window.generateBill = generateBill;
-
-loadCustomers();
-document
-.getElementById("downloadPdfBtn")
-.addEventListener("click", async () => {
-
-    const { jsPDF } = window.jspdf;
-
-    const pdf = new jsPDF();
-
-    await pdf.html(document.querySelector(".login-box"), {
-
-        callback: function (pdf) {
-
-            pdf.save("Weekly_Bill.pdf");
-
-        },
-
-        x: 10,
-        y: 10
 
     });
 
-});
+// PDF Download
+document
+    .getElementById("downloadPdfBtn")
+    .addEventListener("click", async () => {
+
+        const { jsPDF } = window.jspdf;
+
+        const pdf = new jsPDF();
+
+        await pdf.html(document.querySelector(".login-box"), {
+
+            callback: function (pdf) {
+
+                pdf.save("Weekly_Bill.pdf");
+
+            }
+
+        });
+
+    });
+
+// Load Customers
+loadCustomers();
