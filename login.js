@@ -6,9 +6,16 @@ function login() {
     const password = document.getElementById("password").value.trim();
 
     if (username === "admin" && password === "admin123") {
+
         localStorage.setItem("login", "true");
         window.location.href = "dashboard.html";
+
     } else {
+
         alert("Invalid Username or Password");
+
     }
+
 }
+
+window.login = login;
