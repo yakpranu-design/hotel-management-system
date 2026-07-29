@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Customer Ledger</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>📒 Customer Ledger</h1>
+
+<select id="customerSelect">
+
+<option value="">Select Customer</option>
+
+</select>
+
+<br><br>
+
+<button id="loadLedgerBtn">
+
+Load Ledger
+
+</button>
+
+<br><br>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+<th>Type</th>
+<th>Amount</th>
+<th>Balance</th>
+
+</tr>
+
+</thead>
+
+<tbody id="ledgerBody">
+
+</tbody>
+
+</table>
+
+<br>
+
+<h2>
+
+Current Balance :
+₹ <span id="currentBalance">0</span>
+
+</h2>
+
+<br>
+
+<button onclick="location.href='dashboard.html'">
+
+⬅ Back
+
+</button>
+
+</div>
+
+<script type="module" src="ledger.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Food Entry</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>🍽 Daily Food Entry</h1>
+
+<label>Customer</label>
+
+<select id="customer">
+    <option value="">Select Customer</option>
+</select>
+
+<br><br>
+
+<h3>🍞 Breakfast</h3>
+
+<select id="breakfastMenu">
+    <option value="">Select Item</option>
+</select>
+
+<input
+type="number"
+id="breakfastQty"
+placeholder="Quantity"
+min="0"
+value="0">
+
+<br><br>
+
+<h3>🍛 Lunch</h3>
+
+<select id="lunchMenu">
+    <option value="">Select Item</option>
+</select>
+
+<input
+type="number"
+id="lunchQty"
+placeholder="Quantity"
+min="0"
+value="0">
+
+<br><br>
+
+<h3>🌙 Dinner</h3>
+
+<select id="dinnerMenu">
+    <option value="">Select Item</option>
+</select>
+
+<input
+type="number"
+id="dinnerQty"
+placeholder="Quantity"
+min="0"
+value="0">
+
+<br><br>
+
+<h2>
+Today's Total :
+₹ <span id="todayTotal">0</span>
+</h2>
+
+<button id="saveBtn">
+💾 Save Entry
+</button>
+
+<br><br>
+
+<button onclick="location.href='dashboard.html'">
+⬅ Back
+</button>
+
+</div>
+
+<script type="module" src="daily-entry.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer List</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>👥 Customer List</h1>
+
+<input
+type="text"
+id="searchCustomer"
+placeholder="🔍 Search Customer"
+onkeyup="searchCustomer()">
+
+<br><br>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>Mobile</th>
+<th>Address</th>
+<th>Salary</th>
+<th>Edit</th>
+<th>Delete</th>
+</tr>
+
+</thead>
+
+<tbody id="customerBody">
+
+</tbody>
+
+</table>
+
+<br>
+
+<button onclick="location.href='dashboard.html'">
+⬅ Back
+</button>
+
+</div>
+
+<script type="module" src="customers.js"></script>
+
+</body>
+</html>

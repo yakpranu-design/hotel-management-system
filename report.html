@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>📊 Reports</h1>
+
+<label>From Date</label>
+
+<input
+type="date"
+id="fromDate">
+
+<label>To Date</label>
+
+<input
+type="date"
+id="toDate">
+
+<br><br>
+
+<button id="loadReportBtn">
+Load Report
+</button>
+
+<br><br>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Customer</th>
+<th>Date</th>
+<th>Total</th>
+
+</tr>
+
+</thead>
+
+<tbody id="reportBody">
+
+</tbody>
+
+</table>
+
+<br>
+
+<h2>
+
+Grand Total :
+₹ <span id="grandTotal">0</span>
+
+</h2>
+
+<br>
+
+<button onclick="location.href='dashboard.html'">
+
+⬅ Back
+
+</button>
+
+</div>
+
+<script type="module" src="report.js"></script>
+
+</body>
+</html>

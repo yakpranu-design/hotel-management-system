@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock Management</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>📦 Stock Management</h1>
+
+<input
+type="text"
+id="itemName"
+placeholder="Item Name">
+
+<input
+type="number"
+id="quantity"
+placeholder="Quantity">
+
+<select id="unit">
+<option value="Kg">Kg</option>
+<option value="Litre">Litre</option>
+<option value="Packet">Packet</option>
+<option value="Piece">Piece</option>
+</select>
+
+<button id="saveBtn">
+
+➕ Add Stock
+
+</button>
+
+<br><br>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Item</th>
+<th>Quantity</th>
+<th>Unit</th>
+<th>Edit</th>
+<th>Delete</th>
+
+</tr>
+
+</thead>
+
+<tbody id="stockBody">
+
+</tbody>
+
+</table>
+
+<br>
+
+<button onclick="location.href='dashboard.html'">
+
+⬅ Back
+
+</button>
+
+</div>
+
+<script type="module" src="stock.js"></script>
+
+</body>
+</html>

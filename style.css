@@ -1,0 +1,362 @@
+/* ===== Google Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c92d2);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+.container{
+
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.login-box,
+.login-card{
+
+width:420px;
+max-width:100%;
+
+padding:30px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.2);
+
+box-shadow:0 8px 35px rgba(0,0,0,.35);
+
+color:white;
+
+}
+
+.login-box h1,
+.login-card h1{
+
+text-align:center;
+margin-bottom:10px;
+
+}
+
+.login-box h2,
+.login-box h3{
+
+text-align:center;
+margin-bottom:20px;
+
+font-weight:500;
+
+}
+/* ===== Input Fields ===== */
+
+input,
+select{
+
+width:100%;
+
+padding:14px;
+
+margin:10px 0;
+
+border:none;
+
+outline:none;
+
+border-radius:12px;
+
+background:rgba(255,255,255,.18);
+
+color:#fff;
+
+font-size:16px;
+
+transition:.3s;
+
+}
+
+input::placeholder{
+
+color:#ddd;
+
+}
+
+select{
+
+color:white;
+
+}
+
+select option{
+
+color:black;
+
+}
+
+input:focus,
+select:focus{
+
+transform:scale(1.02);
+
+background:rgba(255,255,255,.25);
+
+box-shadow:0 0 15px #00e5ff;
+
+}
+
+/* ===== Buttons ===== */
+
+button{
+
+width:100%;
+
+padding:14px;
+
+margin-top:15px;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-size:17px;
+
+font-weight:bold;
+
+background:linear-gradient(45deg,#00c6ff,#0072ff);
+
+color:white;
+
+transition:.4s;
+
+box-shadow:0 8px 20px rgba(0,0,0,.3);
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
+background:linear-gradient(45deg,#00ff99,#00b894);
+
+box-shadow:0 0 20px #00ffcc;
+
+}
+
+/* ===== Text ===== */
+
+p{
+
+text-align:center;
+
+margin-top:15px;
+
+font-size:15px;
+
+font-weight:500;
+
+}
+
+label{
+
+font-size:16px;
+
+display:block;
+
+margin-top:10px;
+
+}
+/* ===== Table Design ===== */
+
+table{
+
+width:100%;
+
+margin-top:20px;
+
+border-collapse:collapse;
+
+overflow:hidden;
+
+border-radius:15px;
+
+background:rgba(255,255,255,.10);
+
+backdrop-filter:blur(12px);
+
+}
+
+table th{
+
+background:#00c6ff;
+
+color:white;
+
+padding:15px;
+
+font-size:16px;
+
+}
+
+table td{
+
+padding:12px;
+
+text-align:center;
+
+color:white;
+
+border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+table tr:hover{
+
+background:rgba(255,255,255,.15);
+
+transition:.3s;
+
+}
+
+/* ===== Dashboard Cards ===== */
+
+.card{
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(12px);
+
+border-radius:18px;
+
+padding:20px;
+
+margin:15px 0;
+
+text-align:center;
+
+color:white;
+
+box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 0 25px #00e5ff;
+
+}
+
+.card h2{
+
+font-size:28px;
+
+margin-bottom:10px;
+
+}
+
+.card p{
+
+font-size:16px;
+
+}
+
+/* ===== Mobile Responsive ===== */
+
+@media(max-width:768px){
+
+.login-box,
+.login-card{
+
+width:100%;
+
+padding:20px;
+
+}
+
+table{
+
+display:block;
+
+overflow-x:auto;
+
+white-space:nowrap;
+
+}
+
+button{
+
+font-size:16px;
+
+}
+
+input,
+select{
+
+font-size:15px;
+
+}
+
+}
+
+/* ===== Scrollbar ===== */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#00c6ff;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#1d1d1d;
+
+}

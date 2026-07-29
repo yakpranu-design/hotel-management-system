@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>🏨 Sivasakthi Hotel</h1>
+
+<h3>Dashboard</h3>
+
+<div class="card">
+<h2 id="customerCount">0</h2>
+<p>Total Customers</p>
+</div>
+
+<div class="card">
+<h2 id="menuCount">0</h2>
+<p>Total Menu Items</p>
+</div>
+
+<div class="card">
+<h2 id="weeklyCollection">₹0</h2>
+<p>Weekly Collection</p>
+</div>
+
+<div class="card">
+<h2 id="pendingAmount">₹0</h2>
+<p>Pending Amount</p>
+</div>
+
+<hr>
+
+<button onclick="location.href='add-customer.html'">
+➕ Add Customer
+</button>
+<button onclick="location.href='ledger.html'">
+
+📒 Customer Ledger
+
+</button>
+<button onclick="location.href='stock.html'">
+📦 Stock
+</button>
+<button onclick="location.href='settings.html'">
+⚙️ Settings
+</button>
+
+<button onclick="location.href='customers.html'">
+👥 Customer List
+</button>
+
+<button onclick="location.href='menu.html'">
+🍽 Menu Management
+</button>
+<button onclick="location.href='payment-history.html'">
+💳 Payment History
+</button>
+
+<button onclick="location.href='daily-entry.html'">
+📝 Daily Entry
+</button>
+
+<button onclick="location.href='weekly-bill.html'">
+💰 Weekly Bill
+</button>
+
+<button onclick="location.href='report.html'">
+📊 Reports
+</button>
+
+<button onclick="logout()">
+🚪 Logout
+</button>
+
+</div>
+
+<script type="module" src="dashboard.js"></script>

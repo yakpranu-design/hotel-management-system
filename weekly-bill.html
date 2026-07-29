@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Weekly Bill</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<body>
+
+<div class="login-box">
+
+<h1>💰 Weekly Bill</h1>
+
+<select id="customerSelect">
+    <option value="">Select Customer</option>
+</select>
+
+<br><br>
+
+<button id="generateBtn">
+Generate Bill
+</button>
+
+<br><br>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+<th>Breakfast</th>
+<th>Lunch</th>
+<th>Dinner</th>
+<th>Total</th>
+
+</tr>
+
+</thead>
+
+<tbody id="billBody">
+
+</tbody>
+
+</table>
+
+<br>
+
+<h2>
+
+Grand Total :
+₹ <span id="grandTotal">0</span>
+
+</h2>
+
+<br>
+
+<button id="printBtn">
+🖨️ Print
+</button>
+<button id="downloadPdfBtn">
+📄 Download PDF
+</button>
+
+<button id="whatsappBtn">
+📱 WhatsApp
+</button>
+
+<br><br>
+
+<button onclick="location.href='dashboard.html'">
+
+⬅ Back
+
+</button>
+
+</div>
+
+<script type="module" src="weekly-bill.js"></script>
+
+</body>
+</html>

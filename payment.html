@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>💳 Payment</h1>
+
+<select id="customerSelect">
+    <option value="">Select Customer</option>
+</select>
+
+<br><br>
+
+<button id="calculateBtn">
+Calculate Bill
+</button>
+
+<br><br>
+
+<h3>Total Bill : ₹ <span id="totalAmount">0</span></h3>
+
+<input
+type="number"
+id="paidAmount"
+placeholder="Paid Amount">
+
+<h3>Balance : ₹ <span id="balanceAmount">0</span></h3>
+
+<button id="saveBtn">
+Save Payment
+</button>
+
+<br><br>
+
+<button onclick="location.href='dashboard.html'">
+⬅ Back
+</button>
+
+</div>
+
+<script type="module" src="payment.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Customer</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="login-box">
+
+<h1>👤 Add Customer</h1>
+
+<input
+type="text"
+id="name"
+placeholder="Customer Name">
+
+<input
+type="text"
+id="mobile"
+placeholder="Mobile Number">
+
+<textarea
+id="address"
+placeholder="Address"></textarea>
+
+<select id="salaryType">
+<option value="">Select Salary Type</option>
+<option value="Weekly">Weekly</option>
+<option value="Monthly">Monthly</option>
+</select>
+
+<br><br>
+
+<button onclick="saveCustomer()">
+💾 Save Customer
+</button>
+
+<br><br>
+
+<button onclick="location.href='dashboard.html'">
+⬅ Back
+</button>
+
+</div>
+
+<script type="module" src="add-customer.js"></script>
+
+</body>
+</html>
